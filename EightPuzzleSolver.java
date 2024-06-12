@@ -1,5 +1,5 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class EightPuzzleSolver {
 
@@ -120,8 +120,8 @@ public class EightPuzzleSolver {
             if (casesCount[i] > 0) {
                 double avgH1PathCost = h1Results[i][0] / casesCount[i];
                 double avgH2PathCost = h2Results[i][0] / casesCount[i];
-                double avgH1Runtime = h1Results[i][1] / casesCount[i] / 1_000_000; // convert to milliseconds
-                double avgH2Runtime = h2Results[i][1] / casesCount[i] / 1_000_000; // convert to milliseconds
+                double avgH1Runtime = h1Results[i][1] / casesCount[i] / 1_000_000; 
+                double avgH2Runtime = h2Results[i][1] / casesCount[i] / 1_000_000; 
                 double avgH1SearchCost = h1Results[i][2] / casesCount[i];
                 double avgH2SearchCost = h2Results[i][2] / casesCount[i];
                 System.out.printf("%-15d %-15d %-20.2f %-20.2f %-20.2f %-20.2f %-20.2f %-20.2f\n", 
@@ -139,10 +139,11 @@ public class EightPuzzleSolver {
         System.out.println("[1] Random");
         System.out.println("[2] File");
         int inputMethod = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine(); 
 
         PuzzleState initialState = null;
         if (inputMethod == 1) {
+            //now obsolete
             System.out.println("Enter Solution Depth (2-20):");
             int depth = scanner.nextInt();
             do {
