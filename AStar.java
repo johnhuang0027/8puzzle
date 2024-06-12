@@ -20,13 +20,13 @@ class AStar {
 
     PriorityQueue<Node> openSet;
     Set<PuzzleState> closedSet;
-    int pathCost; // To store the final path cost
-    int searchCost; // To store the total number of nodes generated
-    List<PuzzleState> solutionSteps; // To store the solution steps
+    int pathCost; //stores the final path cost
+    int searchCost; //stores total number of nodes generated
+    List<PuzzleState> solutionSteps; //stores solution steps
 
     AStar(PuzzleState startState, boolean useH1) {
         Comparator<Node> comparator = Comparator.comparingInt(Node::f);
-        openSet = new PriorityQueue<>(comparator);
+        openSet = new PriorityQueue<>(comparator); //sorts in ascending order of comparator [0] = least
         closedSet = new HashSet<>();
         solutionSteps = new ArrayList<>();
         searchCost = 0;
@@ -39,13 +39,14 @@ class AStar {
             Node current = openSet.poll();
 
             if (current.state.isGoal()) {
-                pathCost = current.g; // Store the final path cost
+                pathCost = current.g;
                 reconstructPath(current);
                 return;
             }
 
             closedSet.add(current.state);
 
+            //current state will be expanded, all states not in explored set will then be put in frontier set
             for (PuzzleState neighbor : current.state.getSuccessors()) {
                 if (closedSet.contains(neighbor)) continue;
 

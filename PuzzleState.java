@@ -50,6 +50,7 @@ class PuzzleState {
         return distance;
     }
 
+    //returns list of all possible legal moves
     List<PuzzleState> getSuccessors() {
         List<PuzzleState> successors = new ArrayList<>();
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};

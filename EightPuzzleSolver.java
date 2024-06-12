@@ -79,8 +79,8 @@ public class EightPuzzleSolver {
         int[] solutionLengths = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30};
         int numLengths = solutionLengths.length;
 
-        double[][] h1Results = new double[numLengths][3]; // [pathCost, runtime, searchCost]
-        double[][] h2Results = new double[numLengths][3]; // [pathCost, runtime, searchCost]
+        double[][] h1Results = new double[numLengths][3]; //stores result data for h1[pathCost, runtime, searchCost]
+        double[][] h2Results = new double[numLengths][3]; //restuls h2
         int[] casesCount = new int[numLengths];
 
         int validCases = 0;
@@ -143,7 +143,7 @@ public class EightPuzzleSolver {
 
         PuzzleState initialState = null;
         if (inputMethod == 1) {
-            //now obsolete
+            //now obsolete since we do not check for depth anymore, just solve and categorize
             System.out.println("Enter Solution Depth (2-20):");
             int depth = scanner.nextInt();
             do {
